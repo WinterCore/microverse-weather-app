@@ -21,9 +21,10 @@ module.exports = {
     port: 8080,
     contentBase: 'dist',
     open: true,
+    host: '0.0.0.0'
   },
   output: {
-    filename: '[hash]_bundle.js',
+    filename: '[fullhash]_bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [

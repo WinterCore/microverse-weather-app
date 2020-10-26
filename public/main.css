@@ -1,0 +1,55 @@
+:root {
+  --thunder-color1: rgba(34, 34, 34, 0.9);
+  --thunder-color2: rgba(59, 59, 59, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+  font-family: Roboto, sans-serif;
+  color: white;
+}
+
+
+canvas {
+  position: absolute;
+}
+
+
+@keyframes thunder {
+  0% {
+    background-color: var(--thunder-color1);
+  }
+  9% {
+    background-color: var(--thunder-color1);
+  }
+  10% {
+    background-color: var(--thunder-color2);
+  }
+  10.5% {
+    background-color: var(--thunder-color1);
+  }
+  80% {
+    background-color: var(--thunder-color1);
+  }
+  82% {
+    background-color: var(--thunder-color2);
+  }
+  83% {
+    background-color: var(--thunder-color1);
+  }
+  83.5% {
+    background-color: var(--thunder-color2);
+  }
+  100% {
+    background-color: var(--thunder-color1);
+  }
+}
