@@ -55,3 +55,32 @@ export const initCanvas = (canvas: HTMLCanvasElement, init: CanvasInitializer, r
 
     return cleanup;
 };
+
+
+export const getOrdinalSuffix = (n: number): string => {
+    const j = n % 10,
+          k = n % 100;
+    if (j === 1 && k !== 11) {
+        return "st";
+    }
+    if (j === 2 && k !== 12) {
+        return "nd";
+    }
+    if (j === 3 && k !== 13) {
+        return "rd";
+    }
+    return "th";
+};
+
+export const getFormattedDate = (secondsOffset: number): string => {
+    const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const date = new Date();
+
+    const utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+
+    const d = new Date(utc + secondsOffset * 1000);
+
+    return `${DAYS[d.getDay()]}, ${d.getDate()}<sup>${getOrdinalSuffix(d.getDate())}</sup> of ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+};

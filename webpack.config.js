@@ -21,7 +21,7 @@ module.exports = {
     port: 8080,
     contentBase: 'dist',
     open: true,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
   },
   output: {
     filename: '[fullhash]_bundle.js',

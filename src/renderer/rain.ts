@@ -1,10 +1,10 @@
 import * as utils from "../utils";
 
-const DROPLETS_COUNT = 300;
-const DROPLET_COLOR  = "rgba(174,194,224,0.5)";
+let DROPLETS_COUNT = 300;
+let DROPLET_COLOR  = "rgba(174,194,224,0.5)";
 
-const TROUGHS_COUNT = 300;
-const TROUGH_SPEED = 25;
+let TROUGHS_COUNT = 300;
+let TROUGH_SPEED = 25;
 
 const canvas = document.querySelector("#rain-canvas") as HTMLCanvasElement;
 
@@ -49,7 +49,7 @@ const draw = ({ ctx, canvas }: utils.CanvasRendererArg) => {
         ctx.moveTo(droplet.x, droplet.y);
         ctx.lineTo(droplet.x + droplet.l * droplet.xs, droplet.y + droplet.l * droplet.ys);
         ctx.strokeStyle = DROPLET_COLOR;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.lineCap = "round";
         ctx.stroke();
     }
@@ -105,12 +105,21 @@ const init: utils.CanvasInitializer = (canvas) => {
 
 let stopFn: () => void;
 
-const start = () => {
+type RainConfig = {
+    dropletsCount : number;
+    troughsCount  : number;
+};
+
+const start = (arg: RainConfig) => {
+    DROPLETS_COUNT = arg.dropletsCount;
+    TROUGHS_COUNT  = arg.troughsCount;
+    canvas.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
     stopFn = utils.initCanvas(canvas, init, render);
 };
 
 const stop = () => {
     if (stopFn) stopFn();
+    canvas.style.backgroundColor = "transparent";
 };
 
 export { start, stop };

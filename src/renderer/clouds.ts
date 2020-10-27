@@ -4,7 +4,7 @@ const canvas = document.querySelector("#cloud-canvas") as HTMLCanvasElement;
 
 let clouds: Cloud[] = [];
 
-const CLOUDS_COUNT = 30;
+let CLOUDS_COUNT = 30;
 
 class Cloud {
     x : number;
@@ -63,7 +63,12 @@ const init: utils.CanvasInitializer = (canvas) => {
 
 let stopFn: () => void;
 
-const start = () => {
+type CloudsConfig = {
+    count: number;
+};
+
+const start = (cfg: CloudsConfig) => {
+    CLOUDS_COUNT = cfg.count;
     stopFn = utils.initCanvas(canvas, init, render);
 };
 
