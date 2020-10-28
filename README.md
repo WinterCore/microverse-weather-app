@@ -8,7 +8,7 @@
 ![](demo.gif)
 
 
-## [Live demo](https://raw.githack.com/WinterCore/microverse-weather-app/feature/implementation/dist/index.html)
+## [Live demo](https://wintercore.github.io/microverse-weather-app)
 
 ## Built With
 
@@ -46,7 +46,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Thanks to Microverse and the wonderful reviewers who have guided us to the completion of this project
-- [@Nvagelis](https://codepen.io/Nvagelis/details/yaQGAL) for his [rain storm canvas animation](https://codepen.io/Nvagelis/pen/yaQGAL?editors=0010) 
+- [@Nvagelis](https://codepen.io/Nvagelis/details/yaQGAL) for his [rain storm canvas animation](https://codepen.io/Nvagelis/pen/yaQGAL?editors=0010)
 - [@Oklai](https://codepen.io/oklai) for his [snow canvas animation](https://codepen.io/oklai/pen/DvChG)
 - [@Bnthor](https://codepen.io/bnthor) for his [switch css implementation](https://codepen.io/bnthor/pen/WQBNxO)
 
