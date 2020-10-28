@@ -5,17 +5,10 @@
 > Weatherino is a simple app to see the current weather updates for a specific location.
 
 
-![](demo-general.gif)
+![](demo.gif)
 
-<br/>
-<br/>
 
-### Interactive backgrounds
-
-> The background will show different canvas animations based on the current weather.
-
-![](demo-backgrounds.gif)
-
+## [Live demo](https://raw.githack.com/paulo-techie/library-js/feature-library/index.html)
 
 ## Built With
 
@@ -35,7 +28,7 @@
 
 ## Authors
 
-👤 Hasan Kharouf
+👤 WinterCore
 
 - Github: [@WinterCore](https://github.com/WinterCore)
 
