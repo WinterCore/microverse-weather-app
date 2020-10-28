@@ -8,7 +8,7 @@
 ![](demo.gif)
 
 
-## [Live demo](https://raw.githack.com/paulo-techie/library-js/feature-library/index.html)
+## [Live demo](https://raw.githack.com/WinterCore/microverse-weather-app/feature/implementation/dist/index.html)
 
 ## Built With
 
