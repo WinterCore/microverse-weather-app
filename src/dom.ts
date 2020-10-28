@@ -1,5 +1,5 @@
 import { TemperatureUnit, WeatherData } from "./api";
-import { getFormattedDate } from "./utils";
+import { getFormattedDate, getUnitSign } from "./utils";
 
 export const hide = (elem: HTMLElement) => {
     elem.classList.remove("display-block");
@@ -17,11 +17,7 @@ export const $searchInput = $form.querySelector("#location") as HTMLInputElement
 export const $data        = document.querySelector("#data") as HTMLElement;
 export const $searchIcon  = document.querySelector(".search-icon") as HTMLElement;
 export const $logo        = document.querySelector(".header .icon") as HTMLElement;
-
-$searchIcon.addEventListener("click", () => {
-    hide($data);
-    show($form);
-});
+export const $unitSwitch  = document.querySelector("#unit-switch") as HTMLInputElement;
 
 export const setFormError = (err: string) => {
     $formError.innerHTML = err;
@@ -38,6 +34,19 @@ export const switchMode = (mode: "light" | "dark") => {
         document.body.classList.add("dark");
     }
 };
+
+export const getUnitSwitchValue = (): TemperatureUnit => $unitSwitch.checked ? "imperial" : "metric";
+
+export const onUnitSwitchChange = (fn: (val: TemperatureUnit) => void) => {
+    $unitSwitch.addEventListener("change", (e) => {
+        fn(getUnitSwitchValue());
+    });
+};
+
+export const setUnitSwitchValue = (val: TemperatureUnit) => {
+    if (val === "imperial") $unitSwitch.checked = true;
+};
+
 
 const onSearch = (cb: (value: string) => void) => {
     $form.addEventListener("submit", (e) => {
@@ -84,13 +93,13 @@ export const setData = (data: WeatherData, unit: TemperatureUnit) => {
     $date.innerHTML = getFormattedDate(data.timezone);
     $temperatureNumber.innerHTML = Math.round(data.main.temp).toString();
     $desc.innerHTML = data.weather[0].description;
-    $temperatureUnit.innerHTML = unit === "imperial" ? "F" : "C";
+    $temperatureUnit.innerHTML = getUnitSign(unit);
     $extra.innerHTML = "";
     $extra.appendChild(createTextElement("div", "Feels like"));
-    $extra.appendChild(createTextElement("div", data.main.feels_like.toString()));
+    $extra.appendChild(createTextElement("div", Math.round(data.main.feels_like).toString()));
 
     $extra.appendChild(createTextElement("div", "Humidity"));
-    $extra.appendChild(createTextElement("div", `${data.main.humidity}%`);
+    $extra.appendChild(createTextElement("div", `${data.main.humidity}%`));
 
     $extra.appendChild(createTextElement("div", "Min"));
     $extra.appendChild(createTextElement("div", Math.round(data.main.temp_min).toString()));
@@ -98,6 +107,7 @@ export const setData = (data: WeatherData, unit: TemperatureUnit) => {
     $extra.appendChild(createTextElement("div", "Max"));
     $extra.appendChild(createTextElement("div", Math.round(data.main.temp_max).toString()));
 };
+
 
 export {
     onSearch,

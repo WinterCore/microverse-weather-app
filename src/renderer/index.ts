@@ -6,9 +6,9 @@ import { randomInt } from "../utils";
 import { switchMode, setBackground } from "../dom";
 
 const handleThunderstorm = (id: number) => {
-    lightning.start();
     setBackground("darkClouds");
     switchMode("dark");
+    lightning.start();
 
     switch (id) {
         case 200:

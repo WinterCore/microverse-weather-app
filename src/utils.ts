@@ -56,6 +56,7 @@ export const initCanvas = (canvas: HTMLCanvasElement, init: CanvasInitializer, r
     return cleanup;
 };
 
+export const getUnitSign = (unit: string) => unit === "imperial" ? "F" : "C";
 
 export const getOrdinalSuffix = (n: number): string => {
     const j = n % 10,
