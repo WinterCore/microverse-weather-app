@@ -1,4 +1,4 @@
-const API_URL = "http://api.openweathermap.org/data/2.5/weather";
+const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 const API_KEY = "1e5b60249223eb25245ce5722c4fdc18";
 
 export type WeatherData = {
