@@ -20,6 +20,7 @@ dom.onSearch((val) => search(val).catch(console.log));
 
 dom.onUnitSwitchChange((val) => {
     unit = val;
+    window.localStorage.setItem("unit", val);
     if (q) search(q);
 });
 
